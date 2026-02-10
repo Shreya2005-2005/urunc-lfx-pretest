@@ -1,0 +1,59 @@
+{
+    "ociVersion": "1.0.0",
+    "process": {
+        "terminal": false,
+        "user": {
+            "uid": 0,
+            "gid": 0
+        },
+        "args": [
+            "/hello"
+        ],
+        "env": [
+            "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+        ],
+        "cwd": "/"
+    },
+    "root": {
+        "path": "rootfs",
+        "readonly": true
+    },
+    "hostname": "urunc",
+    "mounts": [
+        {
+            "destination": "/proc",
+            "type": "proc",
+            "source": "proc"
+        },
+        {
+            "destination": "/dev",
+            "type": "tmpfs",
+            "source": "tmpfs",
+            "options": [
+                "nosuid",
+                "strictatime",
+                "mode=755",
+                "size=65536k"
+            ]
+        }
+    ],
+    "linux": {
+        "namespaces": [
+            {
+                "type": "pid"
+            },
+            {
+                "type": "network"
+            },
+            {
+                "type": "ipc"
+            },
+            {
+                "type": "uts"
+            },
+            {
+                "type": "mount"
+            }
+        ]
+    }
+}
